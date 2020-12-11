@@ -1,0 +1,5 @@
+﻿  CKader.cpp
+  Utility.cpp
+  Generating Code...
+C:\Users\dell\Desktop\WPSP_Testaufgabe_CPP\WPSP_Testaufgabe_CPP\CKader.cpp(15): warning C4715: 'CKader::add': not all control paths return a value
+  WPSP_Testaufgabe_CPP.vcxproj -> C:\Users\dell\Desktop\WPSP_Testaufgabe_CPP\Debug\WPSP_Testaufgabe_CPP.exe
