@@ -1,21 +1,19 @@
 #pragma once
 #include "CKader.h"
 #include "CFuehrung.h"
-#include <vector>
-
-const unsigned int maxAnzFuehrung = 20;
+#include <array>
 
 class CVerein
 {
 private:
-	unsigned int anzFuehrung;
-	// CKader* pMyKader;
-	std::vector<CKader>* pMyKader;
-	std::vector<CFuehrung>* fuehrungMitglieder;
+	unsigned int anzFuehrung = 0;
+	static const unsigned int maxAnzFuehrung = 20;
+	CKader* pMyKader;
+	std::array<CFuehrung*, maxAnzFuehrung> fuehrungMitglieder;
+	unsigned int lenght = 0;
 
 public:
-	CVerein() = default; //default constructor
 	bool add(const CFuehrung& argCFuehrung);
 	bool add(const CKader& argCKader);
-	void print();
+	void print() const;
 };

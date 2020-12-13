@@ -4,11 +4,10 @@
 class CPerson
 {
 protected:
-	std::string name;
-	std::string vorname;
-	unsigned int alter;
+	std::string name = " ";
+	std::string vorname = " ";
+	unsigned int alter = 0;
 
 public:
-	CPerson(std::string name, std::string vorname, unsigned int alter);
-	void print();
+	virtual void print() const = 0;
 };

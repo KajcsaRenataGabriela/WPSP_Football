@@ -1,17 +1,19 @@
 #pragma once
 #include "CPerson.h"
-#include <vector>
+#include <array>
 
-const unsigned int maxAnzKader = 50;
+class CKader{
 
-class CKader
-{
 private:
-	unsigned int anzKader;
-	std::vector <CPerson>* pKaderMitglieder;
+	unsigned int anzKader = 0;
+	static const unsigned int maxAnzKader = 50;
+
+	std::array<CPerson*, maxAnzKader> pKaderMitglieder;
+	unsigned int lenght = 0;
 
 public:
-	CKader() = default; //default constructor
+	CKader() {} //default constructor
 	bool add(const CPerson& argCPerson);
-	void print();
+	void print() const;
+	~CKader(); //desctructor
 };

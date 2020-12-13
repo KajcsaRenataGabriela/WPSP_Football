@@ -3,25 +3,33 @@
 
 bool CKader::add(const CPerson& argCPerson)
 {
-	if (pKaderMitglieder->size() + 1 < maxAnzKader)
-	{
-		pKaderMitglieder->push_back(argCPerson);
-	}
-	else
-	{
-		std::cout << "Football team membership is full." << std::endl;
-		return false;
-	}
+
+    if (lenght < pKaderMitglieder.size()) {
+        pKaderMitglieder[this->lenght] = const_cast<CPerson*>(&argCPerson);
+
+        this->lenght++;
+        return true;
+    }
+    std::cout << "The maximum number has been reached" << std::endl;
+    return false;
 }
 
-void CKader::print()
+void CKader::print() const
 {
-	std::cout << "The member of the football team are:" << std::endl;
+    std::cout << "Members of the team:" << std::endl;
 
-	for (auto it = pKaderMitglieder->begin(); it != pKaderMitglieder->end(); ++it)
-	{
-		std::cout << "aaa";
-		it->print();
-	}
-
+    for (int i = 0 ; i < this->lenght ; i++)
+    {
+        pKaderMitglieder[i]->print();
+    }
 }
+
+CKader::~CKader()
+{
+    for (int i = 0 ; i < this->lenght ; i++)
+    {
+        delete pKaderMitglieder[i];
+    }
+    lenght = 0;
+}
+

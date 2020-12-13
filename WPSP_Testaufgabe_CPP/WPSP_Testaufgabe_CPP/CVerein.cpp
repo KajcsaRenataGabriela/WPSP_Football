@@ -1,33 +1,36 @@
 #include "CVerein.h"
 #include <iostream>
 
-bool CVerein::add(const CFuehrung& argCFuehrung)
+bool CVerein::add(const CFuehrung& arg)
 {
-	if (fuehrungMitglieder->size() + 1 < maxAnzFuehrung)
-	{
-		fuehrungMitglieder->push_back(argCFuehrung);
-	}
-	else
-	{
-		std::cout << "All leadership seats are taken." << std::endl;
-		return false;
-	}
+    if (lenght < fuehrungMitglieder.size()) {
+        fuehrungMitglieder[this->lenght] = const_cast<CFuehrung*>(&arg);
+        this->lenght++;
+        return true;
+    }
+    return false;
 }
 
-bool CVerein::add(const CKader& argCKader)
+bool CVerein::add(const CKader& arg)
 {
-	if (1)
-	{
-		pMyKader->push_back(argCKader);
-	}
-	else
-	{
-		std::cout << "Club is empty" << std::endl;
-		return false;
-	}
+    if (this->pMyKader == nullptr) { // nullptr = does not point to an object
+        this->pMyKader = const_cast<CKader*>(&arg);
+        return true;
+    }
+    return false;
 }
 
-void CVerein::print()
+void CVerein::print() const
 {
-	std::cout << "" << std::endl;
+    if (this->pMyKader) {
+        this->pMyKader->print();
+    }
+
+    std::cout << "Leadership members: " 
+        << std::endl;
+
+    for (int i = 0; i < this->lenght; i++)
+    {
+        fuehrungMitglieder[i]->print();
+    }
 }
